@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<Extern href="stdidcmd.h"/>
+	<Extern href="vsshlids.h"/>
+	<Include href="KnownImageIds.vsct"/>
+	<Include href="VSGlobals.vsct"/>
+
+	<Commands package="AvaloniaToolkit">
+		<Groups>
+			<Group guid="AvaloniaToolkit" id="MyAddMenuGroup" priority="0x0001">
+				<Parent guid="AvaloniaToolkit" id="MyAddMenu"/>
+			</Group>
+		</Groups>
+
+		<Menus>
+			<Menu guid="AvaloniaToolkit" id="MyAddMenu" priority="0x0001">
+				<Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_ADD_ITEMS"/>
+				<Strings>
+					<ButtonText>Avalonia</ButtonText>
+				</Strings>
+			</Menu>
+		</Menus>
+
+		<!--This section defines the elements the user can interact with, like a menu command or a button
+        or combo box in a toolbar. -->
+		<Buttons>
+			<Button guid="AvaloniaToolkit" id="AddConverterCommand" priority="0x0100" type="Button">
+				<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="StatusInformation" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Strings>
+					<ButtonText>Add Converter</ButtonText>
+					<LocCanonicalName>.AvaloniaToolkit.MyCommand</LocCanonicalName>
+				</Strings>
+			</Button>
+		</Buttons>
+	</Commands>
+
+	<Symbols>
+		<GuidSymbol name="AvaloniaToolkit" value="{0cd2df26-31e3-4522-bbda-7c6a9b47152e}">
+			<IDSymbol name="MyAddMenuGroup" value="0x0001" />
+			<IDSymbol name="MyAddMenu" value="0x0002" />
+			<IDSymbol name="AddConverterCommand" value="0x0101"/>
+		</GuidSymbol>
+	</Symbols>
+</CommandTable>
