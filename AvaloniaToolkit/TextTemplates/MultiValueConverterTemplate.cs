@@ -18,9 +18,9 @@ namespace AvaloniaToolkit.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\AddConverterTemplate.tt"
+    #line 1 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\MultiValueConverterTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class AddConverterTemplate : AddConverterTemplateBase
+    public partial class MultiValueConverterTemplate : MultiValueConverterTemplateBase
     {
 #line hidden
         /// <summary>
@@ -30,6 +30,80 @@ namespace AvaloniaToolkit.TextTemplates
         {
             return this.GenerationEnvironment.ToString();
         }
+        
+        #line 1 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\MultiValueConverterTemplate.tt"
+
+private string _NameField;
+
+/// <summary>
+/// Access the Name parameter of the template.
+/// </summary>
+private string Name
+{
+    get
+    {
+        return this._NameField;
+    }
+}
+
+private string _NamespaceField;
+
+/// <summary>
+/// Access the Namespace parameter of the template.
+/// </summary>
+private string Namespace
+{
+    get
+    {
+        return this._NamespaceField;
+    }
+}
+
+
+/// <summary>
+/// Initialize the template
+/// </summary>
+public virtual void Initialize()
+{
+    if ((this.Errors.HasErrors == false))
+    {
+bool NameValueAcquired = false;
+if (this.Session.ContainsKey("Name"))
+{
+    this._NameField = ((string)(this.Session["Name"]));
+    NameValueAcquired = true;
+}
+if ((NameValueAcquired == false))
+{
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("Name");
+    if ((data != null))
+    {
+        this._NameField = ((string)(data));
+    }
+}
+bool NamespaceValueAcquired = false;
+if (this.Session.ContainsKey("Namespace"))
+{
+    this._NamespaceField = ((string)(this.Session["Namespace"]));
+    NamespaceValueAcquired = true;
+}
+if ((NamespaceValueAcquired == false))
+{
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("Namespace");
+    if ((data != null))
+    {
+        this._NamespaceField = ((string)(data));
+    }
+}
+
+
+    }
+}
+
+
+        
+        #line default
+        #line hidden
     }
     
     #line default
@@ -39,7 +113,7 @@ namespace AvaloniaToolkit.TextTemplates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class AddConverterTemplateBase
+    public class MultiValueConverterTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

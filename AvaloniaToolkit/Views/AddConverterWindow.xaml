@@ -1,0 +1,86 @@
+﻿<Window x:Class="AvaloniaToolkit.Views.AddConverterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:AvaloniaToolkit.Views"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="Add Avalonia Converter"
+        Width="400"
+        Background="{DynamicResource ExtensionDefaultBackground}"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        SizeToContent="Height"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary Source="../Styles/DefaultStyles.xaml" />
+    </Window.Resources>
+    <StackPanel Margin="16">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0"
+                     Padding="4"
+                     VerticalContentAlignment="Center"
+                     FontSize="16"
+                     Text="{Binding ConverterName, UpdateSourceTrigger=PropertyChanged}"
+                     TextWrapping="Wrap" />
+            <Button Grid.Column="1"
+                    Margin="10,0,0,0"
+                    Padding="16,0"
+                    Command="{Binding AddCommand}"
+                    Content="ADD"
+                    IsDefault="True" />
+        </Grid>
+
+        <CheckBox Margin="0,8"
+                  Content="Multi-Value Converter"
+                  IsChecked="{Binding IsMultiValue}" />
+
+        <Expander>
+            <Expander.Header>
+                <Label Content="Customize" />
+            </Expander.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       Content="Namespace: " />
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       Content="Path: " />
+                <Label Grid.Row="2"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       Content="Suffix: " />
+                <TextBox Grid.Row="0"
+                         Grid.Column="1"
+                         Padding="4,0"
+                         VerticalContentAlignment="Center"
+                         Text="{Binding RootNamespace}" />
+                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         Padding="4,0"
+                         VerticalContentAlignment="Center"
+                         Text="{Binding RootPath}" />
+                <TextBox Grid.Row="2"
+                         Grid.Column="1"
+                         Padding="4,0"
+                         VerticalContentAlignment="Center"
+                         Text="{Binding Suffix}" />
+            </Grid>
+
+        </Expander>
+    </StackPanel>
+</Window>
