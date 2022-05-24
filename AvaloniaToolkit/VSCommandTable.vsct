@@ -25,12 +25,21 @@
 		<!--This section defines the elements the user can interact with, like a menu command or a button
         or combo box in a toolbar. -->
 		<Buttons>
-			<Button guid="AvaloniaToolkit" id="AddConverterCommand" priority="0x0100" type="Button">
+			<Button guid="AvaloniaToolkit" id="AddConverterCommand" priority="0x0110" type="Button">
 				<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
 				<Icon guid="ImageCatalogGuid" id="StatusInformation" />
 				<CommandFlag>IconIsMoniker</CommandFlag>
 				<Strings>
 					<ButtonText>Add Converter</ButtonText>
+					<LocCanonicalName>.AvaloniaToolkit.MyCommand</LocCanonicalName>
+				</Strings>
+			</Button>
+			<Button guid="AvaloniaToolkit" id="AddViewModelCommand" priority="0x0109" type="Button">
+				<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="StatusInformation" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Strings>
+					<ButtonText>Add ViewModel</ButtonText>
 					<LocCanonicalName>.AvaloniaToolkit.MyCommand</LocCanonicalName>
 				</Strings>
 			</Button>
@@ -42,6 +51,7 @@
 			<IDSymbol name="MyAddMenuGroup" value="0x0001" />
 			<IDSymbol name="MyAddMenu" value="0x0002" />
 			<IDSymbol name="AddConverterCommand" value="0x0101"/>
+			<IDSymbol name="AddViewModelCommand" value="0x0102"/>
 		</GuidSymbol>
 	</Symbols>
 </CommandTable>

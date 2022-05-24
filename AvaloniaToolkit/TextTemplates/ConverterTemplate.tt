@@ -9,9 +9,9 @@ using System;
 using System.Globalization;
 using Avalonia.Data.Converters;
 
-namespace AvaloniaApplication1.Converters
+namespace <#=Namespace#>
 {
-    internal class BooleanToVisibilityConverter : IValueConverter
+    internal class <#=Name#> : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

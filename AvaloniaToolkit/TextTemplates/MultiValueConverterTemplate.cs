@@ -28,6 +28,35 @@ namespace AvaloniaToolkit.TextTemplates
         /// </summary>
         public virtual string TransformText()
         {
+            this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing System.Globalization;\r\nus" +
+                    "ing Avalonia.Data.Converters;\r\n\r\nnamespace ");
+            
+            #line 13 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\MultiValueConverterTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n    internal class ");
+            
+            #line 15 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\MultiValueConverterTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Name));
+            
+            #line default
+            #line hidden
+            this.Write(@" : IMultiValueConverter
+    {
+        public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
+        {
+            return new Avalonia.Data.BindingNotification(values);
+        }
+
+        public object[] ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return new Avalonia.Data.BindingNotification(value);
+        }
+    }
+}
+");
             return this.GenerationEnvironment.ToString();
         }
         

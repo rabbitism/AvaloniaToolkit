@@ -5,3 +5,23 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ parameter type="System.String" name="Name" #>
 <#@ parameter type="System.String" name="Namespace" #>
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using Avalonia.Data.Converters;
+
+namespace <#=Namespace#>
+{
+    internal class <#=Name#> : IMultiValueConverter
+    {
+        public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
+        {
+            return new Avalonia.Data.BindingNotification(values);
+        }
+
+        public object[] ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return new Avalonia.Data.BindingNotification(value);
+        }
+    }
+}

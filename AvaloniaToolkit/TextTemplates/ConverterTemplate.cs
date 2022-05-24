@@ -28,13 +28,22 @@ namespace AvaloniaToolkit.TextTemplates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"using System;
-using System.Globalization;
-using Avalonia.Data.Converters;
-
-namespace AvaloniaApplication1.Converters
-{
-    internal class BooleanToVisibilityConverter : IValueConverter
+            this.Write("using System;\r\nusing System.Globalization;\r\nusing Avalonia.Data.Converters;\r\n\r\nna" +
+                    "mespace ");
+            
+            #line 12 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ConverterTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n    internal class ");
+            
+            #line 14 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ConverterTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Name));
+            
+            #line default
+            #line hidden
+            this.Write(@" : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
