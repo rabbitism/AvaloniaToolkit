@@ -7,12 +7,16 @@ using EnvDTE;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
+using System.ComponentModel;
+using AvaloniaToolkit.Options;
 
 namespace AvaloniaToolkit
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
+    [ProvideOptionPage(typeof(GeneralOptionPage), "Avalonia Toolkit", "General", 0, 0, true)]
+    [ProvideProfile(typeof(GeneralOptionPage), "Avalonia Toolkit", "General", 0, 0, true)]
     [Guid(PackageGuids.AvaloniaToolkitString)]
     public sealed class AvaloniaToolkitPackage : ToolkitPackage
     {
