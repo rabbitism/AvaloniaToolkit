@@ -47,8 +47,9 @@ namespace AvaloniaToolkit.Views
 
         public OptionsView()
         {
+            
+            Flavors = new ObservableCollection<ViewModelFlavor>(EnumHelpers.GetEnumValues<ViewModelFlavor>());
             InitializeComponent();
-            Flavors = new ObservableCollection<ViewModelFlavor>() { ViewModelFlavor.ReactiveUI, ViewModelFlavor.Prism, ViewModelFlavor.INotifyPropertyChanged };
         }
         public GeneralOptionPage OptionGrid { get; init; }
 
@@ -56,13 +57,14 @@ namespace AvaloniaToolkit.Views
         {
             General.Instance.Load();
             // this.viewModelFlavor.Text = General.Instance.ViewModelFlavor;
+            this.SelectedFlavor = General.Instance.ViewModelFlavor;
         }
 
         private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            //var item = viewModelFlavor.SelectedItem;
-            //General.Instance.ViewModelFlavor = (item as TextBlock).Text;
-            //General.Instance.Save();
+            var item = SelectedFlavor;
+            General.Instance.ViewModelFlavor = item;
+            General.Instance.Save();
         }
     }
 }

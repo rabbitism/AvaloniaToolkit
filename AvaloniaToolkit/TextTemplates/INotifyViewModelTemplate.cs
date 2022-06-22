@@ -18,9 +18,9 @@ namespace AvaloniaToolkit.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ConverterTemplate.tt"
+    #line 1 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\INotifyViewModelTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class ConverterTemplate : ConverterTemplateBase
+    public partial class INotifyViewModelTemplate : INotifyViewModelTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,111 +28,8 @@ namespace AvaloniaToolkit.TextTemplates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using System;\r\nusing System.Globalization;\r\nusing Avalonia.Data.Converters;\r\n\r\nna" +
-                    "mespace ");
-            
-            #line 12 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ConverterTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n{\r\n    internal class ");
-            
-            #line 14 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ConverterTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Name));
-            
-            #line default
-            #line hidden
-            this.Write(@" : IValueConverter
-    {
-        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
-        {
-            return new Avalonia.Data.BindingNotification(value);
-        }
-
-        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
-        {
-            return new Avalonia.Data.BindingNotification(value);
-        }
-    }
-}
-");
             return this.GenerationEnvironment.ToString();
         }
-        
-        #line 1 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ConverterTemplate.tt"
-
-private string _NameField;
-
-/// <summary>
-/// Access the Name parameter of the template.
-/// </summary>
-private string Name
-{
-    get
-    {
-        return this._NameField;
-    }
-}
-
-private string _NamespaceField;
-
-/// <summary>
-/// Access the Namespace parameter of the template.
-/// </summary>
-private string Namespace
-{
-    get
-    {
-        return this._NamespaceField;
-    }
-}
-
-
-/// <summary>
-/// Initialize the template
-/// </summary>
-public virtual void Initialize()
-{
-    if ((this.Errors.HasErrors == false))
-    {
-bool NameValueAcquired = false;
-if (this.Session.ContainsKey("Name"))
-{
-    this._NameField = ((string)(this.Session["Name"]));
-    NameValueAcquired = true;
-}
-if ((NameValueAcquired == false))
-{
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("Name");
-    if ((data != null))
-    {
-        this._NameField = ((string)(data));
-    }
-}
-bool NamespaceValueAcquired = false;
-if (this.Session.ContainsKey("Namespace"))
-{
-    this._NamespaceField = ((string)(this.Session["Namespace"]));
-    NamespaceValueAcquired = true;
-}
-if ((NamespaceValueAcquired == false))
-{
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("Namespace");
-    if ((data != null))
-    {
-        this._NamespaceField = ((string)(data));
-    }
-}
-
-
-    }
-}
-
-
-        
-        #line default
-        #line hidden
     }
     
     #line default
@@ -142,7 +39,7 @@ if ((NamespaceValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class ConverterTemplateBase
+    public class INotifyViewModelTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

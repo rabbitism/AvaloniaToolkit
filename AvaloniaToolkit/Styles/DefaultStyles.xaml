@@ -3,4 +3,5 @@
         <ResourceDictionary Source="pack://application:,,,/Microsoft.VisualStudio.Platform.WindowManagement;component/Themes/ThemedDialogDefaultStyles.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Microsoft.VisualStudio.Shell.UI.Internal;component/Styles/ScrollBarStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
+
 </ResourceDictionary>

@@ -14,8 +14,8 @@
     </UserControl.Resources>
     <StackPanel>
         <DockPanel>
-            <Label Content="ViewModel Flavor " />
-            <Label Content="{Binding}" />
+
+            <Label Content="ViewModel Flavor: " />
             <ComboBox x:Name="viewModelFlavor"
                       HorizontalAlignment="Stretch"
                       ItemsSource="{Binding ElementName=this, Path=Flavors}"
@@ -27,8 +27,6 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-
         </DockPanel>
-
     </StackPanel>
 </UserControl>

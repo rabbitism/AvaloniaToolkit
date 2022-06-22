@@ -18,5 +18,10 @@ namespace AvaloniaToolkit.Common
             var result = attribute?.Name ?? value.ToString();
             return result;
         }
+
+        public static List<T> GetEnumValues<T>() where T: struct, System.Enum
+        {
+            return typeof(T).GetEnumValues().Cast<T>().ToList();
+        }
     }
 }

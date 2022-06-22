@@ -66,12 +66,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConverterTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="TextTemplates\INotifyViewModelTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>INotifyViewModelTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="TextTemplates\MultiValueConverterTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MultiValueConverterTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="TextTemplates\PrismViewModelTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrismViewModelTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TextTemplates\ReactiveViewModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReactiveViewModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\AddConverterViewModel.cs" />
+    <Compile Include="ViewModels\AddVmViewModel.cs" />
     <Compile Include="Views\AddConverterWindow.xaml.cs">
       <DependentUpon>AddConverterWindow.xaml</DependentUpon>
     </Compile>
@@ -92,9 +108,21 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ConverterTemplate.cs</LastGenOutput>
     </Content>
+    <Content Include="TextTemplates\INotifyViewModelTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>INotifyViewModelTemplate.cs</LastGenOutput>
+    </Content>
     <Content Include="TextTemplates\MultiValueConverterTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MultiValueConverterTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\PrismViewModelTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PrismViewModelTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\ReactiveViewModel.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ReactiveViewModel.cs</LastGenOutput>
     </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
@@ -136,6 +164,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Styles\DefaultStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\StyleUtilities.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

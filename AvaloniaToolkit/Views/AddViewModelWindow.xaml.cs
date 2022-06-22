@@ -1,4 +1,5 @@
 ﻿using AvaloniaToolkit.Options;
+using AvaloniaToolkit.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +24,14 @@ namespace AvaloniaToolkit.Views
         public AddViewModelWindow()
         {
             InitializeComponent();
-            General g = General.Instance;
-            if (g.ViewModelFlavor != null)
-            {
-                // this.Title = g.ViewModelFlavor;
-            }
+            var vm = new AddVmViewModel();
+            vm.OnCreateSucceedEventHandler += Vm_OnCreateSucceedEventHandler;
+            this.DataContext = vm;
+        }
+
+        private void Vm_OnCreateSucceedEventHandler(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
