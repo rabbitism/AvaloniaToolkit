@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:AvaloniaToolkit.Views"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:AvaloniaToolkit.Properties"
         Title="Add Avalonia Converter"
         Width="400"
         Background="{DynamicResource ExtensionDefaultBackground}"
@@ -21,24 +22,21 @@
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <TextBox Grid.Column="0"
-                     Padding="4"
-                     VerticalContentAlignment="Center"
-                     FontSize="16"
-                     Text="{Binding ConverterName, UpdateSourceTrigger=PropertyChanged}"
-                     TextWrapping="Wrap" />
+                     Style="{StaticResource FileInputTextboxStyle}"
+                     Text="{Binding ConverterName, UpdateSourceTrigger=PropertyChanged}" />
             <Button Grid.Column="1"
                     Margin="10,0,0,0"
                     Padding="16,0"
                     Command="{Binding AddCommand}"
-                    Content="ADD"
+                    Content="{x:Static p:Resources.BUTTON_ADD}"
                     IsDefault="True" />
         </Grid>
 
-        <CheckBox Margin="0,8"
+        <CheckBox Margin="{StaticResource SectionMargin}"
                   Content="Multi-Value Converter"
                   IsChecked="{Binding IsMultiValue}" />
 
-        <Expander>
+        <Expander Margin="{StaticResource SectionMargin}">
             <Expander.Header>
                 <Label Content="Customize" />
             </Expander.Header>
@@ -66,18 +64,15 @@
                        Content="Suffix: " />
                 <TextBox Grid.Row="0"
                          Grid.Column="1"
-                         Padding="4,0"
-                         VerticalContentAlignment="Center"
+                         Style="{StaticResource CustomizeOptionTextboxStyle}"
                          Text="{Binding RootNamespace}" />
                 <TextBox Grid.Row="1"
                          Grid.Column="1"
-                         Padding="4,0"
-                         VerticalContentAlignment="Center"
+                         Style="{StaticResource CustomizeOptionTextboxStyle}"
                          Text="{Binding RootPath}" />
                 <TextBox Grid.Row="2"
                          Grid.Column="1"
-                         Padding="4,0"
-                         VerticalContentAlignment="Center"
+                         Style="{StaticResource CustomizeOptionTextboxStyle}"
                          Text="{Binding Suffix}" />
             </Grid>
 
