@@ -79,14 +79,13 @@ namespace AvaloniaToolkit.ViewModels
                 switch (SelectedFlavor)
                 {
                     case ViewModelFlavor.Prism:
-                        
+                        await AddViewModelAsync(new PrismViewModelTemplate());
                         break;
                     case ViewModelFlavor.ReactiveUI:
-                        await AddReactiveUiViewModelAsync();
+                        await AddViewModelAsync(new ReactiveViewModelTemplate());
                         break;
                     case ViewModelFlavor.INotifyPropertyChanged:
-                        break;
-                    default:
+                        await AddViewModelAsync(new INotifyViewModelTemplate());
                         break;
                 }
             }
@@ -122,12 +121,9 @@ namespace AvaloniaToolkit.ViewModels
             }
         }
 
-        private async Task AddReactiveUiViewModelAsync()
+        private async Task AddViewModelAsync<T>(T template) where T: BaseTemplate
         {
-            ReactiveViewModelTemplate template = new ReactiveViewModelTemplate()
-            {
-                Session = new Dictionary<string, object>(),
-            };
+            template.Session = new Dictionary<string, object>();
             string name = GetName();
             template.Session.Add("Name", name);
             template.Session.Add("Namespace", RootNamespace);
@@ -141,7 +137,6 @@ namespace AvaloniaToolkit.ViewModels
             await project.AddExistingFilesAsync(path);
             await VS.Documents.OpenAsync(path);
             OnCreateSucceedEventHandler?.Invoke(this, null);
-
         }
 
         private string GetName()

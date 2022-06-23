@@ -76,6 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>source.extension.vsixmanifest</DependentUpon>
     </Compile>
+    <Compile Include="TextTemplates\BaseTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="TextTemplates\ConverterTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +124,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TextTemplates\BaseTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BaseTemplate.cs</LastGenOutput>
+    </Content>
     <Content Include="TextTemplates\ConverterTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ConverterTemplate.cs</LastGenOutput>
