@@ -83,11 +83,11 @@ namespace AvaloniaToolkit.ViewModels
             {
                 if (IsMultiValue)
                 {
-                    await OnAddMultiValueConverterAsync();
+                    await AddConverterAsync(new ConverterTemplate());
                 }
                 else
                 {
-                    await OnAddConverterAsync();
+                    await AddConverterAsync(new MultiValueConverterTemplate());
                 }
             }
             catch (Exception ex)
@@ -97,9 +97,9 @@ namespace AvaloniaToolkit.ViewModels
             }
         }
 
-        private async Task OnAddConverterAsync()
+        private async Task AddConverterAsync<T>(T template) where T: BaseTemplate
         {
-            ConverterTemplate template = new ConverterTemplate() { Session = new Dictionary<string, object>(), };
+            template.Session = new Dictionary<string, object>();
             string converterName = GetConverterName();
             template.Session.Add("Name", converterName);
             template.Session.Add("Namespace", RootNamespace);
@@ -110,23 +110,6 @@ namespace AvaloniaToolkit.ViewModels
             File.WriteAllText(path, s);
             var project = _solutionItem.GetContainingProject();
             await project.AddExistingFilesAsync(path);
-            OnCreateSucceedEventHandler?.Invoke(this, null);
-        }
-
-        private async Task OnAddMultiValueConverterAsync()
-        {
-            MultiValueConverterTemplate template = new MultiValueConverterTemplate() { Session = new Dictionary<string, object>(), };
-            string converterName = GetConverterName();
-            template.Session.Add("Name", converterName);
-            template.Session.Add("Namespace", RootNamespace);
-            template.Initialize();
-            string s = template.TransformText();
-            string seperator = RootPath.EndsWith(Path.DirectorySeparatorChar.ToString()) ? string.Empty : Path.DirectorySeparatorChar.ToString();
-            string path = RootPath + seperator + converterName + ".cs";
-            File.WriteAllText(path, s);
-            var project = _solutionItem.GetContainingProject();
-            await project.AddExistingFilesAsync(path);
-            await VS.Documents.OpenAsync(path);
             OnCreateSucceedEventHandler?.Invoke(this, null);
         }
 
