@@ -30,7 +30,7 @@
                      Padding="4"
                      VerticalContentAlignment="Center"
                      FontSize="16"
-                     Text="{Binding ConverterName, UpdateSourceTrigger=PropertyChanged}"
+                     Text="{Binding ViewModelName, UpdateSourceTrigger=PropertyChanged}"
                      TextWrapping="Wrap" />
             <Button Grid.Column="1"
                     Margin="10,0,0,0"

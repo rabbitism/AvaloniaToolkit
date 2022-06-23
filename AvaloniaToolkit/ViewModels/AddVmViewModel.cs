@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using AvaloniaToolkit.Common;
 using Prism.Commands;
+using Microsoft.VisualStudio.Threading;
+using AvaloniaToolkit.TextTemplates;
+using System.IO;
 
 namespace AvaloniaToolkit.ViewModels
 {
@@ -63,12 +66,41 @@ namespace AvaloniaToolkit.ViewModels
 
         public AddVmViewModel()
         {
-            Initialize();
-
-
+            ThreadHelper.ThrowIfNotOnUIThread();
+            ThreadHelper.JoinableTaskFactory.Run(InitializeAsync);
+            AddCommand = new DelegateCommand(() => ThreadHelper.JoinableTaskFactory.Run(OnAddAsync), CanAdd);
+            Suffix = "ViewModel";
         }
 
-        private async void Initialize()
+        private async Task OnAddAsync()
+        {
+            try
+            {
+                switch (SelectedFlavor)
+                {
+                    case ViewModelFlavor.Prism:
+                        
+                        break;
+                    case ViewModelFlavor.ReactiveUI:
+                        await AddReactiveUiViewModelAsync();
+                        break;
+                    case ViewModelFlavor.INotifyPropertyChanged:
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch(Exception ex)
+            {
+                await VS.MessageBox.ShowErrorAsync("Fail to create File. ", ex.Message);
+            }
+        }
+        private bool CanAdd()
+        {
+            return true;
+        }
+
+        private async Task InitializeAsync()
         {
             var solutionItems = (await VS.Solutions.GetActiveItemsAsync()).ToList();
             if (solutionItems.Count != 1)
@@ -87,6 +119,41 @@ namespace AvaloniaToolkit.ViewModels
             if (g != null)
             {
                 SelectedFlavor = g.ViewModelFlavor;
+            }
+        }
+
+        private async Task AddReactiveUiViewModelAsync()
+        {
+            ReactiveViewModelTemplate template = new ReactiveViewModelTemplate()
+            {
+                Session = new Dictionary<string, object>(),
+            };
+            string name = GetName();
+            template.Session.Add("Name", name);
+            template.Session.Add("Namespace", RootNamespace);
+            template.Initialize();
+
+            string s = template.TransformText();
+            string separator = RootPath.EndsWith(Path.DirectorySeparatorChar.ToString()) ? string.Empty : Path.DirectorySeparatorChar.ToString();
+            string path = RootPath + separator + name + ".cs";
+            File.WriteAllText(path, s);
+            var project = _solutionItem.GetContainingProject();
+            await project.AddExistingFilesAsync(path);
+            await VS.Documents.OpenAsync(path);
+            OnCreateSucceedEventHandler?.Invoke(this, null);
+
+        }
+
+        private string GetName()
+        {
+            if (ViewModelName is null) return null;
+            if (ViewModelName.EndsWith(Suffix))
+            {
+                return ViewModelName;
+            }
+            else
+            {
+                return ViewModelName + Suffix;
             }
         }
     }

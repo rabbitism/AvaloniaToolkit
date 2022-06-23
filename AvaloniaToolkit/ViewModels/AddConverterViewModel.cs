@@ -54,14 +54,15 @@ namespace AvaloniaToolkit.ViewModels
 
         public AddConverterViewModel() 
         {
-            Initialize();
+            ThreadHelper.ThrowIfNotOnUIThread();
+            ThreadHelper.JoinableTaskFactory.Run(InitializeAsync);
             Suffix = "Converter";
             ConverterName = "BooleanToVisibility";
             IsMultiValue = false;
-            AddCommand = new DelegateCommand(() => OnAdd(), CanAdd);
+            AddCommand = new DelegateCommand(() => ThreadHelper.JoinableTaskFactory.Run(OnAddAsync), CanAdd);
         }
 
-        private async void Initialize()
+        private async Task InitializeAsync()
         {
             var solutionItems = (await VS.Solutions.GetActiveItemsAsync()).ToList();
             if (solutionItems.Count != 1)
@@ -76,7 +77,7 @@ namespace AvaloniaToolkit.ViewModels
             RootPath = path.FullName;
         }
 
-        private async Task OnAdd()
+        private async Task OnAddAsync()
         {
             try
             {
@@ -125,6 +126,7 @@ namespace AvaloniaToolkit.ViewModels
             File.WriteAllText(path, s);
             var project = _solutionItem.GetContainingProject();
             await project.AddExistingFilesAsync(path);
+            await VS.Documents.OpenAsync(path);
             OnCreateSucceedEventHandler?.Invoke(this, null);
         }
 
