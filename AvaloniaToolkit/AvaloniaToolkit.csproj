@@ -81,10 +81,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PrismViewModelTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="TextTemplates\ReactiveViewModel.cs">
+    <Compile Include="TextTemplates\ReactiveViewModelTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReactiveViewModel.tt</DependentUpon>
+      <DependentUpon>ReactiveViewModelTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddConverterViewModel.cs" />
     <Compile Include="ViewModels\AddVmViewModel.cs" />
@@ -120,9 +120,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PrismViewModelTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="TextTemplates\ReactiveViewModel.tt">
+    <Content Include="TextTemplates\ReactiveViewModelTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ReactiveViewModel.cs</LastGenOutput>
+      <LastGenOutput>ReactiveViewModelTemplate.cs</LastGenOutput>
     </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>

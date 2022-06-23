@@ -18,9 +18,9 @@ namespace AvaloniaToolkit.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ReactiveViewModel.tt"
+    #line 1 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ReactiveViewModelTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class ReactiveViewModel : ReactiveViewModelBase
+    public partial class ReactiveViewModelTemplate : ReactiveViewModelTemplateBase
     {
 #line hidden
         /// <summary>
@@ -31,14 +31,14 @@ namespace AvaloniaToolkit.TextTemplates
             this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing ReactiveUI;\r\n\r\nnamespace " +
                     "");
             
-            #line 12 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ReactiveViewModel.tt"
+            #line 12 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ReactiveViewModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n\tpublic class ");
             
-            #line 14 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ReactiveViewModel.tt"
+            #line 14 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ReactiveViewModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Name));
             
             #line default
@@ -47,7 +47,7 @@ namespace AvaloniaToolkit.TextTemplates
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ReactiveViewModel.tt"
+        #line 1 "C:\Code\Galaxism\AvaloniaToolkit\AvaloniaToolkit\TextTemplates\ReactiveViewModelTemplate.tt"
 
 private string _NameField;
 
@@ -129,7 +129,7 @@ if ((NamespaceValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class ReactiveViewModelBase
+    public class ReactiveViewModelTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;
