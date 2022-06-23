@@ -47,7 +47,6 @@ namespace AvaloniaToolkit.Views
 
         public OptionsView()
         {
-            
             Flavors = new ObservableCollection<ViewModelFlavor>(EnumHelpers.GetEnumValues<ViewModelFlavor>());
             InitializeComponent();
         }
@@ -56,7 +55,6 @@ namespace AvaloniaToolkit.Views
         public void InitializeOptions()
         {
             General.Instance.Load();
-            // this.viewModelFlavor.Text = General.Instance.ViewModelFlavor;
             this.SelectedFlavor = General.Instance.ViewModelFlavor;
         }
 

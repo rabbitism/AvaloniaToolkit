@@ -3,3 +3,15 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ parameter type="System.String" name="Name" #>
+<#@ parameter type="System.String" name="Namespace" #>
+using System;
+using System.Collections.Generic;
+using ReactiveUI;
+
+namespace <#=Namespace#>
+{
+	public class <#=Name#> : ReactiveObject
+	{
+	}
+}

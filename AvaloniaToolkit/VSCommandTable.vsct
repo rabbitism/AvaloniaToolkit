@@ -27,7 +27,7 @@
 		<Buttons>
 			<Button guid="AvaloniaToolkit" id="AddConverterCommand" priority="0x0110" type="Button">
 				<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
-				<Icon guid="ImageCatalogGuid" id="StatusInformation" />
+				<Icon guid="ImageCatalogGuid" id="ConvertPartition" />
 				<CommandFlag>IconIsMoniker</CommandFlag>
 				<Strings>
 					<ButtonText>Add Converter</ButtonText>
@@ -36,7 +36,7 @@
 			</Button>
 			<Button guid="AvaloniaToolkit" id="AddViewModelCommand" priority="0x0109" type="Button">
 				<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
-				<Icon guid="ImageCatalogGuid" id="StatusInformation" />
+				<Icon guid="ImageCatalogGuid" id="NotificationHub" />
 				<CommandFlag>IconIsMoniker</CommandFlag>
 				<Strings>
 					<ButtonText>Add ViewModel</ButtonText>

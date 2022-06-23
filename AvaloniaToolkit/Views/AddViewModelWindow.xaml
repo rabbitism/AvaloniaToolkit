@@ -39,7 +39,7 @@
                     Content="ADD"
                     IsDefault="True" />
         </Grid>
-        <Expander Margin="0,8,0,0">
+        <Expander Margin="0,8,0,0" IsExpanded="True">
             <Expander.Header>
                 <Label Content="Customize" />
             </Expander.Header>
@@ -49,6 +49,9 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <Label Content="ViewModel Flavor:" />
@@ -64,6 +67,33 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       Content="Namespace: " />
+                <Label Grid.Row="2"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       Content="Path: " />
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       Content="Suffix: " />
+                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         Padding="4,0"
+                         VerticalContentAlignment="Center"
+                         Text="{Binding RootNamespace}" />
+                <TextBox Grid.Row="2"
+                         Grid.Column="1"
+                         Padding="4,0"
+                         VerticalContentAlignment="Center"
+                         Text="{Binding RootPath}" />
+                <TextBox Grid.Row="3"
+                         Grid.Column="1"
+                         Padding="4,0"
+                         VerticalContentAlignment="Center"
+                         Text="{Binding Suffix}" />
             </Grid>
         </Expander>
     </StackPanel>
