@@ -27,11 +27,8 @@
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <TextBox Grid.Column="0"
-                     Padding="4"
-                     VerticalContentAlignment="Center"
-                     FontSize="16"
-                     Text="{Binding ViewModelName, UpdateSourceTrigger=PropertyChanged}"
-                     TextWrapping="Wrap" />
+                     Style="{StaticResource FileInputTextboxStyle}"
+                     Text="{Binding ViewModelName, UpdateSourceTrigger=PropertyChanged}" />
             <Button Grid.Column="1"
                     Margin="10,0,0,0"
                     Padding="16,0"
@@ -81,18 +78,15 @@
                        Content="Suffix: " />
                 <TextBox Grid.Row="1"
                          Grid.Column="1"
-                         Padding="4,0"
-                         VerticalContentAlignment="Center"
+                         Style="{StaticResource CustomizeOptionTextboxStyle}"
                          Text="{Binding RootNamespace}" />
                 <TextBox Grid.Row="2"
                          Grid.Column="1"
-                         Padding="4,0"
-                         VerticalContentAlignment="Center"
+                         Style="{StaticResource CustomizeOptionTextboxStyle}"
                          Text="{Binding RootPath}" />
                 <TextBox Grid.Row="3"
                          Grid.Column="1"
-                         Padding="4,0"
-                         VerticalContentAlignment="Center"
+                         Style="{StaticResource CustomizeOptionTextboxStyle}"
                          Text="{Binding Suffix}" />
             </Grid>
         </Expander>
