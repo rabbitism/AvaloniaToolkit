@@ -48,6 +48,7 @@
     <Compile Include="Commands\AddConverterCommand.cs" />
     <Compile Include="Commands\AddViewModelCommand.cs" />
     <Compile Include="Common\EnumHelpers.cs" />
+    <Compile Include="Common\FileHelper.cs" />
     <Compile Include="Converters\EnumToStringConverter.cs" />
     <Compile Include="Options\General.cs" />
     <Compile Include="Common\ProjectHelpers.cs" />

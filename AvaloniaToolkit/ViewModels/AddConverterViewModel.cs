@@ -67,7 +67,7 @@ namespace AvaloniaToolkit.ViewModels
             var solutionItems = (await VS.Solutions.GetActiveItemsAsync()).ToList();
             if (solutionItems.Count != 1)
             {
-                await VS.MessageBox.ShowErrorAsync("Cannot determine where to add this converter. Please select only one folder. ");
+                await VS.MessageBox.ShowErrorAsync("Cannot determine where to add this file. Please select only one folder. ");
                 return;
             }
             _solutionItem = solutionItems.First();
@@ -107,9 +107,13 @@ namespace AvaloniaToolkit.ViewModels
             string s = template.TransformText();
             string seperator = RootPath.EndsWith(Path.DirectorySeparatorChar.ToString()) ? string.Empty : Path.DirectorySeparatorChar.ToString();
             string path = RootPath + seperator + converterName + ".cs";
-            File.WriteAllText(path, s);
+
+            await FileHelper.ThrowIfExistAsync(path);
+            await FileHelper.CreateTextFileAsync(path, s);
+
             var project = _solutionItem.GetContainingProject();
             await project.AddExistingFilesAsync(path);
+            await VS.Documents.OpenAsync(path);
             OnCreateSucceedEventHandler?.Invoke(this, null);
         }
 
