@@ -22,7 +22,10 @@ namespace AvaloniaToolkit
     {
         public const int MyAddMenuGroup = 0x0001;
         public const int MyAddMenu = 0x0002;
+        public const int TopMenu = 0x0003;
+        public const int TopMenuGroup = 0x0004;
         public const int AddConverterCommand = 0x0101;
         public const int AddViewModelCommand = 0x0102;
+        public const int CodeSnippetToolCommand = 0x0103;
     }
 }

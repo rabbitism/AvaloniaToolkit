@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Commands\AddConverterCommand.cs" />
     <Compile Include="Commands\AddViewModelCommand.cs" />
+    <Compile Include="Commands\CodeSnippetToolCommand.cs" />
     <Compile Include="Common\EnumHelpers.cs" />
     <Compile Include="Common\FileHelper.cs" />
     <Compile Include="Converters\EnumToStringConverter.cs" />
