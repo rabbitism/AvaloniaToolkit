@@ -116,6 +116,9 @@
     <Compile Include="Views\AddViewModelWindow.xaml.cs">
       <DependentUpon>AddViewModelWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CodeSnippetWindow.xaml.cs">
+      <DependentUpon>CodeSnippetWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OptionsView.xaml.cs">
       <DependentUpon>OptionsView.xaml</DependentUpon>
     </Compile>
@@ -202,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddViewModelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeSnippetWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

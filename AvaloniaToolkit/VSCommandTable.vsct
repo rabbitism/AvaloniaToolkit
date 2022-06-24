@@ -15,8 +15,6 @@
 				<Parent guid="AvaloniaToolkit" id="TopMenu"/>
 			</Group>
 		</Groups>
-		
-		
 
 		<Menus>
 			<Menu guid="AvaloniaToolkit" id="MyAddMenu" priority="0x0001">
@@ -36,6 +34,7 @@
 		<!--This section defines the elements the user can interact with, like a menu command or a button
         or combo box in a toolbar. -->
 		<Buttons>
+			<!--PROJECT ADD Context Menu-->
 			<Button guid="AvaloniaToolkit" id="AddConverterCommand" priority="0x0110" type="Button">
 				<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
 				<Icon guid="ImageCatalogGuid" id="ConvertPartition" />
@@ -54,6 +53,7 @@
 					<LocCanonicalName>.AvaloniaToolkit.MyCommand</LocCanonicalName>
 				</Strings>
 			</Button>
+			<!--TOP MENU-->
 			<Button guid="AvaloniaToolkit" id="CodeSnippetToolCommand" priority="0x0109" type="Button">
 				<Parent guid="AvaloniaToolkit" id="TopMenuGroup" />
 				<Icon guid="ImageCatalogGuid" id="NotificationHub" />
