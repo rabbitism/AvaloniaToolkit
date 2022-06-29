@@ -1,0 +1,69 @@
+﻿<Window x:Class="AvaloniaToolkit.CodeSnippetTool.Views.CodeSnippetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:AvaloniaToolkit.CodeSnippetTool.Views"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:AvaloniaToolkit.CodeSnippetTool.ViewModels"
+        Title="Code Snippet Tool"
+        Width="800"
+        Height="450"
+        d:DataContext="{d:DesignInstance Type={x:Type vm:CodeSnippetToolViewModel}}"
+        Background="{DynamicResource ExtensionDefaultBackground}"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary Source="../../Styles/DefaultStyles.xaml" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TreeView Grid.Row="1"
+                  Grid.Column="0"
+                  MinWidth="200"
+                  HorizontalAlignment="Left"
+                  Grid.IsSharedSizeScope="True"
+                  ItemsSource="{Binding Collections}"
+                  SelectedItemChanged="TreeView_SelectedItemChanged">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Snippets}">
+                    <Label Content="{Binding CollectionName}" />
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate DataType="{x:Type vm:CodeSnippetViewModel}">
+                            <Grid HorizontalAlignment="Left">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MinWidth="100" SharedSizeGroup="Title" />
+                                    <ColumnDefinition SharedSizeGroup="Shortcut" />
+                                    <ColumnDefinition SharedSizeGroup="Selected" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       Content="{Binding CodeSnippet.Header.Title}"
+                                       ToolTip="{Binding CodeSnippet.Header.Title}" />
+                                <TextBox Grid.Column="1"
+                                         Margin="8,0"
+                                         VerticalAlignment="Center"
+                                         VerticalContentAlignment="Center"
+                                         Background="Transparent"
+                                         Text="{Binding Shortcut}" />
+                                <CheckBox Grid.Column="2"
+                                          Margin="8,0"
+                                          VerticalAlignment="Center"
+                                          IsChecked="{Binding Selected}" />
+                            </Grid>
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+
+        <local:CodeSnippetView Grid.Row="1"
+                               Grid.Column="1"
+                               DataContext="{Binding SelectedSnippet}" />
+    </Grid>
+</Window>

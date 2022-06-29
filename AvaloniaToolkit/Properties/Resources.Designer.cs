@@ -61,6 +61,16 @@ namespace AvaloniaToolkit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AvaloniaSnippets {
+            get {
+                object obj = ResourceManager.GetObject("AvaloniaSnippets", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ADD.
         /// </summary>
         public static string BUTTON_ADD {

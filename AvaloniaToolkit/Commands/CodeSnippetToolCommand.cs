@@ -1,4 +1,4 @@
-﻿using AvaloniaToolkit.Views;
+﻿using AvaloniaToolkit.CodeSnippetTool.Views;
 
 namespace AvaloniaToolkit
 {
