@@ -71,15 +71,27 @@ namespace AvaloniaToolkit.Common
             }
             SolutionItem i = item;
             // TODO: optimize code. 
-            if(i.Parent != null && i.Parent.Type == SolutionItemType.Project)
+            //if(i.Parent != null && i.Parent.Type == SolutionItemType.Project)
+            //{
+            //    return i.Parent as Project;
+            //}
+            //while (i.Parent != null && i.Parent.Type != SolutionItemType.Project)
+            //{
+            //    i = i.Parent;
+            //}
+            //return i as Project;
+            while (i != null)
             {
-                return i.Parent as Project;
+                if(i.Type == SolutionItemType.Project)
+                {
+                    return i as Project;
+                }
+                else
+                {
+                    i = i.Parent;
+                }
             }
-            while (i.Parent != null && i.Parent.Type != SolutionItemType.Project)
-            {
-                i = i.Parent;
-            }
-            return i as Project;
+            return null;
         }
     }
 }

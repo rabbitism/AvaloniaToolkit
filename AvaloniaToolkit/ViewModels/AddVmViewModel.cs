@@ -137,7 +137,7 @@ namespace AvaloniaToolkit.ViewModels
             await FileHelper.CreateTextFileAsync(path, s);
             
             var project = _solutionItem.GetContainingProject();
-            await project.AddExistingFilesAsync(path);
+            await project?.AddExistingFilesAsync(path);
             await VS.Documents.OpenAsync(path);
             OnCreateSucceedEventHandler?.Invoke(this, null);
         }

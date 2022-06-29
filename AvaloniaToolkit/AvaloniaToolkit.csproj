@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="CodeSnippetTool\ViewModels\CodeSnippetToolViewModel.cs" />
     <Compile Include="CodeSnippetTool\ViewModels\CodeSnippetViewModel.cs" />
+    <Compile Include="CodeSnippetTool\ViewModels\LiteralViewModel.cs" />
     <Compile Include="CodeSnippetTool\ViewModels\SnippetCollection.cs" />
     <Compile Include="CodeSnippetTool\Views\CodeSnippetView.xaml.cs">
       <DependentUpon>CodeSnippetView.xaml</DependentUpon>
