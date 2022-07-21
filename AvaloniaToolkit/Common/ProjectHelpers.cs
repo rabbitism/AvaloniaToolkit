@@ -10,7 +10,7 @@ namespace AvaloniaToolkit.Common
 {
     internal static class ProjectHelpers
     {
-        private static readonly DTE2 _dte = AvaloniaToolkitPackage.DTE;
+        // private static readonly DTE2 _dte = AvaloniaToolkitPackage.DTE;
 
         public static async Task<string> GetRootNamespaceAsync(this Project project)
         {
@@ -26,7 +26,7 @@ namespace AvaloniaToolkit.Common
 
         public static async Task<string> GetNamespaceAsync(SolutionItem item)
         {
-            Project project = null;
+            Project project;
             if (item is Project p)
             {
                 project = p;
@@ -36,7 +36,7 @@ namespace AvaloniaToolkit.Common
                 project = item.FindParent(SolutionItemType.Project) as Project;
             }
             var rootNamespace = await GetRootNamespaceAsync(project);
-            List<string> sections = new List<string>();
+            List<string> sections = new();
             SolutionItem i = item;
             while (i != null && i?.FullPath != project?.FullPath)
             {
@@ -52,12 +52,12 @@ namespace AvaloniaToolkit.Common
         {
             if (project.Type == SolutionItemType.Project || project.Type == SolutionItemType.PhysicalFile)
             {
-                FileInfo fileInfo = new FileInfo(project.FullPath);
+                FileInfo fileInfo = new(project.FullPath);
                 return fileInfo.Directory;
             }
             else if (project.Type == SolutionItemType.PhysicalFolder)
             {
-                DirectoryInfo info = new DirectoryInfo(project.FullPath);
+                DirectoryInfo info = new(project.FullPath);
                 return info;
             }
             return null;
