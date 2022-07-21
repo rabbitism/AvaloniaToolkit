@@ -2,10 +2,10 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.1.0" >
 		<Header>
-			<Title>AvaloniaSnippets</Title>
-			<Author>Rabbitism</Author>
-			<Shortcut>ae</Shortcut>
-			<Description>Code snippet for "addEventListener"</Description>
+			<Title>Avalonia Styled Property</Title>
+			<Author>Galaxism</Author>
+			<Shortcut>aprops</Shortcut>
+			<Description>Avalonia Styled Property</Description>
 			<SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
 			</SnippetTypes>
@@ -13,25 +13,30 @@
 		<Snippet>
 			<Declarations>
 				<Literal>
-					<ID>object</ID>
-					<ToolTip>Object to attach to</ToolTip>
-					<Default>window</Default>
+					<ID>propertyType</ID>
+					<ToolTip>Type of Property</ToolTip>
+					<Default>Brush</Default>
 				</Literal>
 				<Literal>
-					<ID>event</ID>
-					<ToolTip>Name of the event</ToolTip>
-					<Default>load</Default>
+					<ID>propertyName</ID>
+					<ToolTip>Name of Property</ToolTip>
+					<Default>Background</Default>
 				</Literal>
-				<Literal>
-					<ID>body</ID>
-					<ToolTip>Body of event handler function</ToolTip>
-					<Default>// body</Default>
+				<Literal Editable="false">
+					<ID>owner</ID>
+					<ToolTip>Owner class of Property</ToolTip>
+					<Function>ClassName()</Function>
+					<Default>ClassNameHolder</Default>
 				</Literal>
 			</Declarations>
 			<Code Language="JavaScript">
-				<![CDATA[$object$.addEventListener('$event$', function(e) {
-    $body$
-});$end$]]>
+				<![CDATA[public static readonly StyledProperty<$propertyType$> $propertyName$Property =
+    AvaloniaProperty.Register<$owner$, $propertyType$>(nameof($propertyName$));
+public Brush $propertyName$
+{
+    get { return GetValue($propertyName$Property); }
+    set { SetValue($propertyName$Property, value); }
+}$end$]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>

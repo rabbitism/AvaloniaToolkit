@@ -34,8 +34,6 @@ namespace AvaloniaToolkit.CodeSnippetTool.ViewModels
             set { _title = value; RaisePropertyChanged(); }
         }
 
-
-
         public CodeSnippetViewModel()
         {
             Shortcut = "prop";

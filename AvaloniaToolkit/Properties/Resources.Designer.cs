@@ -78,5 +78,15 @@ namespace AvaloniaToolkit.Properties {
                 return ResourceManager.GetString("BUTTON_ADD", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ReactiveUI {
+            get {
+                object obj = ResourceManager.GetObject("ReactiveUI", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

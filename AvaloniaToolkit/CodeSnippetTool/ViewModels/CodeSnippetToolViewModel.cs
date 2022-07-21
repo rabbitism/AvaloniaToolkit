@@ -27,38 +27,28 @@ namespace AvaloniaToolkit.CodeSnippetTool.ViewModels
 
         public CodeSnippetToolViewModel()
         {
+            Collections = new ObservableCollection<SnippetCollection>();
             try
             {
-                byte[] bytes = Properties.Resources.AvaloniaSnippets;
-                Stream stream = new MemoryStream(bytes);
-
-                SnippetDocument document = SnippetDocument.Load(stream);
-
-                Collections = new ObservableCollection<SnippetCollection>()
-                {
-                    new SnippetCollection
-                    {
-                        CollectionName = "Avalonia",
-                        Snippets = new ObservableCollection<CodeSnippetViewModel>
-                        {
-                            new CodeSnippetViewModel(),
-                            new CodeSnippetViewModel(),
-                            new CodeSnippetViewModel(),
-                        }
-                    },
-
-                };
-                SnippetCollection collection = new SnippetCollection() { CollectionName = "Test" };
-                foreach (var snippet in document.CodeSnippets.CodeSnippets)
-                {
-                    collection.Snippets.Add(new CodeSnippetViewModel(snippet));
-                }
-                Collections.Add(collection);
+                AddSnippets(Properties.Resources.AvaloniaSnippets, "Avalonia");
+                AddSnippets(Properties.Resources.ReactiveUI, "Reactive UI");
             }
             catch(Exception ex)
             {
                 throw;
             }
+        }
+
+        private void AddSnippets(byte[] file, string name)
+        {
+            using Stream m = new MemoryStream(file);
+            SnippetDocument document = SnippetDocument.Load(m);
+            SnippetCollection collection = new SnippetCollection() { CollectionName = name };
+            foreach(var snippet in document.CodeSnippets.CodeSnippets)
+            {
+                collection.Snippets.Add(new CodeSnippetViewModel(snippet));
+            }
+            Collections.Add(collection);
         }
     }
 }

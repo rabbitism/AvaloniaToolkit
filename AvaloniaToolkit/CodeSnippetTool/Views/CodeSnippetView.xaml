@@ -10,5 +10,10 @@
     <StackPanel>
         <Label Content="{Binding Title}" FontSize="16" />
         <Label Content="{Binding Shortcut}" />
+        <RichTextBox IsReadOnly="True">
+            <FlowDocument>
+                <Paragraph>Hello</Paragraph>
+            </FlowDocument>
+        </RichTextBox>
     </StackPanel>
 </UserControl>

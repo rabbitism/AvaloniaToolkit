@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.1.0" >
+		<Header>
+			<Title>Notify Property</Title>
+			<Author>Galaxism</Author>
+			<Shortcut>propno</Shortcut>
+			<Description>Create a full property with ReactiveObject RaiseAndSetIfChanged</Description>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>type</ID>
+					<ToolTip>Type of property</ToolTip>
+					<Default>string</Default>
+				</Literal>
+				<Literal>
+					<ID>fieldName</ID>
+					<ToolTip>Name of backend field</ToolTip>
+					<Default>myProperty</Default>
+				</Literal>
+				<Literal>
+					<ID>propertyName</ID>
+					<ToolTip>Name of Property</ToolTip>
+					<Default>MyProperty</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="CSharp">
+				<![CDATA[private $type$ $fieldName$;
+    public $type$ $propertyName$
+    {
+        get => $fieldName$;
+        set => this.RaiseAndSetIfChanged(ref $fieldName$, value);
+    }$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
