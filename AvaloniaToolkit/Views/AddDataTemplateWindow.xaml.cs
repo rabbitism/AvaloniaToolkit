@@ -1,4 +1,5 @@
 ﻿using AvaloniaToolkit.ViewModels;
+using Microsoft.VisualStudio.PlatformUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace AvaloniaToolkit.Views
     /// <summary>
     /// Interaction logic for AddDataTemplateWindow.xaml
     /// </summary>
-    public partial class AddDataTemplateWindow : Window
+    public partial class AddDataTemplateWindow : DialogWindow
     {
         public AddDataTemplateWindow()
         {

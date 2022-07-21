@@ -1,5 +1,6 @@
 ﻿using AvaloniaToolkit.Options;
 using AvaloniaToolkit.ViewModels;
+using Microsoft.VisualStudio.PlatformUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace AvaloniaToolkit.Views
     /// <summary>
     /// Interaction logic for AddViewModelWindow.xaml
     /// </summary>
-    public partial class AddViewModelWindow : Window
+    public partial class AddViewModelWindow : DialogWindow
     {
         public AddViewModelWindow()
         {
