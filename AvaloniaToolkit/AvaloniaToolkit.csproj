@@ -46,6 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\AddConverterCommand.cs" />
+    <Compile Include="Commands\AddDataTemplateCommand.cs" />
     <Compile Include="Commands\AddViewModelCommand.cs" />
     <Compile Include="Common\EnumHelpers.cs" />
     <Compile Include="Common\FileHelper.cs" />
@@ -87,6 +88,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConverterTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="TextTemplates\DataTemplateSelectorTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataTemplateSelectorTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TextTemplates\DataTemplateTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataTemplateTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="TextTemplates\INotifyViewModelTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,9 +119,13 @@
       <DependentUpon>ReactiveViewModelTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddConverterViewModel.cs" />
+    <Compile Include="ViewModels\AddDataTemplateViewModel.cs" />
     <Compile Include="ViewModels\AddVmViewModel.cs" />
     <Compile Include="Views\AddConverterWindow.xaml.cs">
       <DependentUpon>AddConverterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddDataTemplateWindow.xaml.cs">
+      <DependentUpon>AddDataTemplateWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddViewModelWindow.xaml.cs">
       <DependentUpon>AddViewModelWindow.xaml</DependentUpon>
@@ -132,6 +147,14 @@
     <Content Include="TextTemplates\ConverterTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ConverterTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\DataTemplateSelectorTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DataTemplateSelectorTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\DataTemplateTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DataTemplateTemplate.cs</LastGenOutput>
     </Content>
     <Content Include="TextTemplates\INotifyViewModelTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -182,6 +205,12 @@
   <ItemGroup>
     <PackageReference Include="Community.VisualStudio.VSCT" Version="16.0.29.6" PrivateAssets="all" />
     <PackageReference Include="Community.VisualStudio.Toolkit.17" Version="17.0.430" ExcludeAssets="Runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Imaging">
+      <Version>17.2.32505.113</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0">
+      <Version>17.2.32505.113</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.0.5232" />
     <PackageReference Include="Prism.Core">
       <Version>8.1.97</Version>
@@ -197,6 +226,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddConverterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddDataTemplateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

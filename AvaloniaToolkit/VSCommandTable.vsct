@@ -41,6 +41,14 @@
 					<LocCanonicalName>.AvaloniaToolkit.AddViewModelCommand</LocCanonicalName>
 				</Strings>
 			</Button>
+			<Button guid="AvaloniaToolkit" id="AddDataTemplateCommand" priority="0x0108" type="Button">
+				<Icon guid="ImageCatalogGuid" id="Template" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Strings>
+					<ButtonText>Add DataTemplate</ButtonText>
+					<LocCanonicalName>.AvaloniaToolkit.AddDataTemplateCommand</LocCanonicalName>
+				</Strings>
+			</Button>
 		</Buttons>
 	</Commands>
 
@@ -48,17 +56,23 @@
 		<CommandPlacement guid="AvaloniaToolkit" id="AddConverterCommand" priority="0x0001">
 			<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
 		</CommandPlacement>
+		<CommandPlacement guid="AvaloniaToolkit" id="AddDataTemplateCommand" priority="0x0001">
+			<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
+		</CommandPlacement>
 		<CommandPlacement guid="AvaloniaToolkit" id="AddViewModelCommand" priority="0x0001">
 			<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
 		</CommandPlacement>
+
 	</CommandPlacements>
 
 	<Symbols>
 		<GuidSymbol name="AvaloniaToolkit" value="{0cd2df26-31e3-4522-bbda-7c6a9b47152e}">
 			<IDSymbol name="MyAddMenuGroup" value="0x0001" />
 			<IDSymbol name="MyAddMenu" value="0x0002" />
+			
 			<IDSymbol name="AddConverterCommand" value="0x0101"/>
 			<IDSymbol name="AddViewModelCommand" value="0x0102"/>
+			<IDSymbol name="AddDataTemplateCommand" value="0x0103"/>
 		</GuidSymbol>
 	</Symbols>
 </CommandTable>

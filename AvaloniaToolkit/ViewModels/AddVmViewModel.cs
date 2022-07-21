@@ -96,7 +96,7 @@ namespace AvaloniaToolkit.ViewModels
         }
         private bool CanAdd()
         {
-            return ViewModelName.Length != 0;
+            return !string.IsNullOrWhiteSpace(ViewModelName);
         }
 
         private async Task InitializeAsync()
