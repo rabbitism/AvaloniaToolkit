@@ -26,25 +26,32 @@
         or combo box in a toolbar. -->
 		<Buttons>
 			<Button guid="AvaloniaToolkit" id="AddConverterCommand" priority="0x0110" type="Button">
-				<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
 				<Icon guid="ImageCatalogGuid" id="ConvertPartition" />
 				<CommandFlag>IconIsMoniker</CommandFlag>
 				<Strings>
 					<ButtonText>Add Converter</ButtonText>
-					<LocCanonicalName>.AvaloniaToolkit.MyCommand</LocCanonicalName>
+					<LocCanonicalName>.AvaloniaToolkit.AddConverterCommand</LocCanonicalName>
 				</Strings>
 			</Button>
 			<Button guid="AvaloniaToolkit" id="AddViewModelCommand" priority="0x0109" type="Button">
-				<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
 				<Icon guid="ImageCatalogGuid" id="NotificationHub" />
 				<CommandFlag>IconIsMoniker</CommandFlag>
 				<Strings>
 					<ButtonText>Add ViewModel</ButtonText>
-					<LocCanonicalName>.AvaloniaToolkit.MyCommand</LocCanonicalName>
+					<LocCanonicalName>.AvaloniaToolkit.AddViewModelCommand</LocCanonicalName>
 				</Strings>
 			</Button>
 		</Buttons>
 	</Commands>
+
+	<CommandPlacements>
+		<CommandPlacement guid="AvaloniaToolkit" id="AddConverterCommand" priority="0x0001">
+			<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
+		</CommandPlacement>
+		<CommandPlacement guid="AvaloniaToolkit" id="AddViewModelCommand" priority="0x0001">
+			<Parent guid="AvaloniaToolkit" id="MyAddMenuGroup" />
+		</CommandPlacement>
+	</CommandPlacements>
 
 	<Symbols>
 		<GuidSymbol name="AvaloniaToolkit" value="{0cd2df26-31e3-4522-bbda-7c6a9b47152e}">
