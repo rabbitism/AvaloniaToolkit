@@ -1,58 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AvaloniaToolkit.Common;
+﻿using AvaloniaToolkit.Common;
 using AvaloniaToolkit.TextTemplates;
 using Prism.Commands;
 using Prism.Mvvm;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace AvaloniaToolkit.ViewModels
 {
-    internal class AddConverterViewModel: BindableBase
+    internal class AddConverterViewModel : BindableBase
     {
         private SolutionItem _solutionItem;
         public DelegateCommand AddCommand { get; set; }
         public event EventHandler OnCreateSucceedEventHandler;
 
         private string _rootNamespace;
-        public string RootNamespace
-        {
-            get { return _rootNamespace; }
-            set { _rootNamespace = value; RaisePropertyChanged(); }
-        }
+        public string RootNamespace { get => _rootNamespace; set => SetProperty(ref _rootNamespace, value); }
 
         private string _rootPath;
-        public string RootPath
-        {
-            get { return _rootPath; }
-            set { _rootPath = value; RaisePropertyChanged(); }
-        }
+        public string RootPath { get => _rootPath; set => SetProperty(ref _rootPath, value); }
 
         private string _converterName;
-        public string ConverterName
-        {
-            get { return _converterName; }
-            set { _converterName = value; RaisePropertyChanged(); AddCommand?.RaiseCanExecuteChanged(); }
-        }
+        public string ConverterName { get => _converterName; set { SetProperty(ref _converterName, value); AddCommand?.RaiseCanExecuteChanged(); } }
 
         private string _suffix;
-        public string Suffix
-        {
-            get { return _suffix; }
-            set { _suffix = value; RaisePropertyChanged(); }
-        }
+        public string Suffix { get => _suffix; set => SetProperty(ref _suffix, value); }
+
         private bool _isMultiValue;
+        public bool IsMultiValue { get => _isMultiValue; set => SetProperty(ref _isMultiValue, value); }
 
-        public bool IsMultiValue
-        {
-            get { return _isMultiValue; }
-            set { _isMultiValue = value; RaisePropertyChanged(); }
-        }
-
-        public AddConverterViewModel() 
+        public AddConverterViewModel()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             ThreadHelper.JoinableTaskFactory.Run(InitializeAsync);
@@ -97,7 +74,7 @@ namespace AvaloniaToolkit.ViewModels
             }
         }
 
-        private async Task AddConverterAsync<T>(T template) where T: BaseTemplate
+        private async Task AddConverterAsync<T>(T template) where T : BaseTemplate
         {
             template.Session = new Dictionary<string, object>();
             string converterName = GetConverterName();
