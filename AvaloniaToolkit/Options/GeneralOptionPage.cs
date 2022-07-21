@@ -17,7 +17,7 @@ namespace AvaloniaToolkit.Options
         {
             get
             {
-                OptionsView page = new OptionsView
+                OptionsView page = new()
                 {
                     OptionGrid = this,
                 };

@@ -22,46 +22,22 @@ namespace AvaloniaToolkit.ViewModels
         public event EventHandler OnCreateSucceedEventHandler;
 
         private ViewModelFlavor _selectedFlavor;
-        public ViewModelFlavor SelectedFlavor
-        {
-            get { return _selectedFlavor; }
-            set { _selectedFlavor = value; RaisePropertyChanged(); }
-        }
+        public ViewModelFlavor SelectedFlavor { get => _selectedFlavor; set => SetProperty(ref _selectedFlavor, value); } 
 
         private ObservableCollection<ViewModelFlavor> _flavors;
-        public ObservableCollection<ViewModelFlavor> Flavors
-        {
-            get { return _flavors; }
-            set { _flavors = value; RaisePropertyChanged(); }
-        }
+        public ObservableCollection<ViewModelFlavor> Flavors { get => _flavors; set => SetProperty(ref _flavors, value); }
 
         private string _viewModelName;
-        public string ViewModelName
-        {
-            get { return _viewModelName; }
-            set { _viewModelName = value; RaisePropertyChanged(); AddCommand?.RaiseCanExecuteChanged(); }
-        }
+        public string ViewModelName { get => _viewModelName; set { SetProperty(ref _viewModelName, value); AddCommand?.RaiseCanExecuteChanged(); } }
 
         private string _suffix;
-        public string Suffix
-        {
-            get { return _suffix; }
-            set { _suffix = value; RaisePropertyChanged(); }
-        }
+        public string Suffix { get => _suffix; set => SetProperty(ref _suffix, value); }
 
         private string _rootNamespace;
-        public string RootNamespace
-        {
-            get { return _rootNamespace; }
-            set { _rootNamespace = value; RaisePropertyChanged(); }
-        }
+        public string RootNamespace { get => _rootNamespace; set => SetProperty(ref _rootNamespace, value); }
 
         private string _rootPath;
-        public string RootPath
-        {
-            get { return _rootPath; }
-            set { _rootPath = value; RaisePropertyChanged(); }
-        }
+        public string RootPath { get => _rootPath; set => SetProperty(ref _rootPath, value); }
 
 
         public AddVmViewModel()
