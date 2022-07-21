@@ -24,5 +24,6 @@ namespace AvaloniaToolkit
         public const int MyAddMenu = 0x0002;
         public const int AddConverterCommand = 0x0101;
         public const int AddViewModelCommand = 0x0102;
+        public const int AddDataTemplateCommand = 0x0103;
     }
 }

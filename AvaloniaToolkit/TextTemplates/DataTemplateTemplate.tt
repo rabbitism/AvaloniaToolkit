@@ -1,0 +1,36 @@
+﻿<#@ template language="C#" inherits="BaseTemplate" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ parameter type="System.String" name="Name" #>
+<#@ parameter type="System.String" name="Namespace" #>
+using Avalonia.Controls.Templates;
+using Avalonia.Controls;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace <#=Namespace#>
+{
+    internal class <#=Name#> : IDataTemplate
+    {
+        public IControl Build(object param)
+        {
+            // TODO: build and return the control which represents your data
+            // Sample: 
+            // return new Textblock(){ Text = param.ToString() };
+            throw new NotImplementedException();
+        }
+
+        public bool Match(object data)
+        {
+            // TODO: Check if the provided data matches or not. Return true if matches, otherwise false.
+            // Sample: 
+            // return data is string;
+            throw new NotImplementedException();
+        }
+    }
+}
