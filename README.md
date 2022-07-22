@@ -1,6 +1,6 @@
 # Avalonia Toolkit
 
-![Marketplace](https://img.shields.io/visual-studio-marketplace/i/rabbitism.AvaloniaToolkit?label=Marketplace&logo=visual%20studio&style=flat-square)
+[![Marketplace](https://img.shields.io/visual-studio-marketplace/i/rabbitism.AvaloniaToolkit?label=Marketplace&logo=visual%20studio&style=flat-square)](https://marketplace.visualstudio.com/items?itemName=rabbitism.AvaloniaToolkit)
 
 ## Features
 
