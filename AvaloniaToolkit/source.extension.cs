@@ -11,7 +11,7 @@ namespace AvaloniaToolkit
         public const string Name = "Avalonia Toolkit";
         public const string Description = @"Create Avalonia boilerplate code.";
         public const string Language = "en-US";
-        public const string Version = "0.1";
+        public const string Version = "0.1.1";
         public const string Author = "Dong Bin";
         public const string Tags = "";
     }
