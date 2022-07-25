@@ -58,7 +58,7 @@ namespace AvaloniaToolkit.ViewModels
         {
             try
             {
-                if (IsMultiValue)
+                if (!IsMultiValue)
                 {
                     await AddConverterAsync(new ConverterTemplate());
                 }

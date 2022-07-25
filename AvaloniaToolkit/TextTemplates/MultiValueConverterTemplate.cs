@@ -43,20 +43,10 @@ namespace AvaloniaToolkit.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@" : IMultiValueConverter
-    {
-        public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
-        {
-            return new Avalonia.Data.BindingNotification(values);
-        }
-
-        public object[] ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return new Avalonia.Data.BindingNotification(value);
-        }
-    }
-}
-");
+            this.Write(" : IMultiValueConverter\r\n    {\r\n        public object? Convert(IList<object?> val" +
+                    "ues, Type targetType, object? parameter, CultureInfo culture)\r\n        {\r\n      " +
+                    "      return new Avalonia.Data.BindingNotification(values);\r\n        }\r\n    }\r\n}" +
+                    "\r\n");
             return this.GenerationEnvironment.ToString();
         }
         

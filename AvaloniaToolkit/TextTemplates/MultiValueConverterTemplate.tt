@@ -18,10 +18,5 @@ namespace <#=Namespace#>
         {
             return new Avalonia.Data.BindingNotification(values);
         }
-
-        public object[] ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return new Avalonia.Data.BindingNotification(value);
-        }
     }
 }
